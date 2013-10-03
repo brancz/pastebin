@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK 
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Ua-Compatible: chrome=1
+Content-Type: text/html; charset=utf-8
+Etag: "57abb7cdd6ccf8a3ecc7f840e2dd5f6a"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: beb11ee9-dc3b-4d5c-9bb4-8d3931277e78
+X-Runtime: 0.011098
+Server: WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+Date: Wed, 02 Oct 2013 23:45:18 GMT
+Content-Length: 1492
+Connection: Keep-Alive
+Set-Cookie: request_method=GET; path=/
+Set-Cookie: _vim-pastebin_session=eFhKcklYQmM1UWxnNTRCYjRWeDd1UzJzb0hQRlpXcmk5Mjg1N2lpMVpMSDFuV3FCYWwvRkVkSENGMzRrMlBza0FnS0pXZ3VWc1I1Vlp0alR1QnNwdXFNRDRBeVZnYzlOeWR6STFpeFBSbXg5WDA1dlpSbmtuMEVZZ1RkZGlzNTNRd2h3OVJZaUNyYkVVWllwWCt2YmM4dHY4REZBOCtJU1Q5bEVpTisrZjlqM0ZPWUt2MStJd3RVbkpzL2RTV2tZLS1Mc3Ara3JIdkhxTDFNbm5scUlOZDFRPT0%3D--f92ade91d444ffda069c3789f11031e18d0f84af; path=/; HttpOnly
+
