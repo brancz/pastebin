@@ -1,0 +1,17 @@
+    <div class="panel-body recent-pastes">
+      <div class="header-line">
+				<h3>Recent Pastes</h3>
+			</div>
+			<hr>
+			<ul>
+			<% @pastes.each do |paste| %>
+        <li>
+          <%= link_to '', edit_paste_path(paste), :class => "glyphicon glyphicon-edit" %>
+          <%= link_to '', paste, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove" %>
+          <strong><%= link_to paste.title, paste %></strong>
+          <br />
+          <small><%= createdAgo(paste) %></small>
+        </li>
+			<% end %>
+			</ul>
+    </div>

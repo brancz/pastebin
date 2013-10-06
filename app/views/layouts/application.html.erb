@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VimPastebin</title>
+  <title>vim-pastebin</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<div class="jumbotron">
+		<div class="container">
+      <h1><a href="/">vim-pastebin</a></h1>
+				<p>The easy way to paste from vim</p>
+				<p><a class="btn btn-primary btn-lg">Learn more about the vim plugin</a></p>
+		</div>
+	</div>
+
+  <div id="wrapper">
+    <%= yield %>
+    <div id="push"></div>
+  </div>
+
+<div id="footer" class="navbar-fixed-bottom">
+		<div class="container">
+			<p class="muted credit">Provided by <a href="https://github.com/flower-pot">FlowerPot</a> and <a href="https://github.com/flopska">flopska</a>.</p>
+		</div>
+	</div>
 
 </body>
 </html>

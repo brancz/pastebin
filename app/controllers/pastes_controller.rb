@@ -4,16 +4,25 @@ class PastesController < ApplicationController
   # GET /pastes
   # GET /pastes.json
   def index
-    @pastes = Paste.all
+    @pastes = Paste.feed
+    @paste = Paste.new
   end
 
   # GET /pastes/1
   # GET /pastes/1.json
+  # GET /pastes/1.text
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.text { render :text => @paste.content }
+      format.any { redirect_to @paste }
+    end
   end
 
   # GET /pastes/new
   def new
+    @pastes = Paste.feed
     @paste = Paste.new
   end
 
@@ -23,15 +32,18 @@ class PastesController < ApplicationController
 
   # POST /pastes
   # POST /pastes.json
+  # POST /pastes.text
   def create
+    @pastes = Paste.feed
     @paste = Paste.new(paste_params)
 
     respond_to do |format|
       if @paste.save
         format.html { redirect_to @paste, notice: 'Paste was successfully created.' }
         format.json { render action: 'show', status: :created, location: @paste }
+        format.text { render :text => url_for(:controller => 'pastes', :action => 'show', :id => @paste.id) }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'index' }
         format.json { render json: @paste.errors, status: :unprocessable_entity }
       end
     end
@@ -62,13 +74,14 @@ class PastesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paste
-      @paste = Paste.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_paste
+    @pastes = Paste.feed
+    @paste = Paste.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def paste_params
-      params.require(:paste).permit(:title, :content)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def paste_params
+    params.require(:paste).permit(:title, :content)
+  end
 end

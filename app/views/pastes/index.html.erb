@@ -1,29 +1,10 @@
-<h1>Listing pastes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pastes.each do |paste| %>
-      <tr>
-        <td><%= paste.title %></td>
-        <td><%= paste.content %></td>
-        <td><%= link_to 'Show', paste %></td>
-        <td><%= link_to 'Edit', edit_paste_path(paste) %></td>
-        <td><%= link_to 'Destroy', paste, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Paste', new_paste_path %>
+<div class="container">
+	<div class="panel-default col-md-8">
+		<div class="panel-body">
+			<%= render 'form' %>
+		</div>
+	</div>
+	<div class="col-md-4">
+    <%= render 'latest' %>
+	</div>
+</div>

@@ -1,14 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @paste.title %>
-</p>
+<div class="container">
+	<div class="panel-default col-md-8">
+		<div class="panel-body">
+      <div>
+        <div class="pull-left">
+          <h3><%= @paste.title %></h3>
+        </div>
+        <div class="pull-right" style="margin-top: 20px;">
+          <%= link_to( edit_paste_path(@paste), :class => "btn btn-primary" ) do %>
+          <span class="glyphicon glyphicon-edit"></span> Edit
+          <% end %>
+        </div>
+        <div class="pull-right" style="margin-top: 20px; margin-right: 10px;">
+          <%= link_to( @paste, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" ) do %>
+          <span class="glyphicon glyphicon-edit"></span> Delete
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <hr>
+      <div class="field">
+        <pre><%= @paste.content %></pre>
+      </div>
+      <hr>
+    </div>
+	</div>
+	<div class="col-md-4">
+    <%= render 'latest' %>
+	</div>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @paste.content %>
-</p>
-
-<%= link_to 'Edit', edit_paste_path(@paste) %> |
-<%= link_to 'Back', pastes_path %>
