@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  *= require 'bootstrap/bootstrap.min.css'
- *= require 'highlight_js/highlight_js.css'
+ *= require 'highlight_js/github.css'
  */
 
 body {

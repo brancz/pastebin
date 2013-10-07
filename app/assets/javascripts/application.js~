@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require highlight_js/highlight.pack.js
+//= requite highlight_js/highlight.pack.js
