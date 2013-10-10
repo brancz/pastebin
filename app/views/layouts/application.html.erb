@@ -26,8 +26,12 @@
     <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
   <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice != nil %>
+    <div class="alert alert-info"><%= notice %></div>
+  <% end %>
+  <% if alert != nil %> 
+    <div class="alert alert-danger"><%= alert %></div>
+  <% end %>
 
   <div id="wrapper">
     <%= yield %>
