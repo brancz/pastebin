@@ -28,6 +28,11 @@ class PastesController < ApplicationController
 
   # GET /pastes/1/edit
   def edit
+    if !user_signed_in? || @paste.user_id != current_user.id
+      respond_to do |format|
+        format.html { redirect_to :back, alert: 'You are not authorized to edit this paste.' }
+      end
+    end
   end
 
   # POST /pastes
@@ -36,6 +41,11 @@ class PastesController < ApplicationController
   def create
     @pastes = Paste.feed
     @paste = Paste.new(paste_params)
+
+    if user_signed_in?
+      current_user.pastes << @paste
+      current_user.save
+    end
 
     respond_to do |format|
       if @paste.save
@@ -66,10 +76,17 @@ class PastesController < ApplicationController
   # DELETE /pastes/1
   # DELETE /pastes/1.json
   def destroy
-    @paste.destroy
-    respond_to do |format|
-      format.html { redirect_to pastes_url }
-      format.json { head :no_content }
+    if user_signed_in? && @paste.user_id == current_user.id
+      @paste.destroy
+      respond_to do |format|
+        format.html { redirect_to pastes_url }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :back, alert: 'You are not authorized to delete this paste.'}
+        #todo json ouput
+      end
     end
   end
 

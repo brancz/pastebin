@@ -1,4 +1,6 @@
 class Paste < ActiveRecord::Base
+  belongs_to :user
+
 	validates :title,
     presence: true
 
@@ -7,10 +9,23 @@ class Paste < ActiveRecord::Base
 
   after_initialize :init
 
+  attr_accessor :user
+
   def init
     if self.content.present? && self.title.blank?
       self.title = "unnamed"
     end
+  end
+
+  def to_s
+    String str = self.title
+    str += " - "
+    if self.user_id != nil
+      str += User.find(self.user_id).email
+    else
+      str += "Anonymous"
+    end
+    str
   end
 
 	def self.feed
