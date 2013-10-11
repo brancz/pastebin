@@ -26,15 +26,8 @@
     <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
   <% end %>
 
-  <% if notice != nil %>
-    <div class="alert alert-info"><%= notice %></div>
-  <% end %>
-  <% if alert != nil %> 
-    <div class="alert alert-danger"><%= alert %></div>
-  <% end %>
-
   <div id="wrapper">
-    <%= yield %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
     <div id="push"></div>
   </div>
 

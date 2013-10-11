@@ -1,10 +1,8 @@
-<div class="container">
-	<div class="panel-default col-md-8">
-		<div class="panel-body">
       <div>
         <div class="pull-left">
           <h3><%= @paste.title %></h3>
         </div>
+        <% if user_signed_in? && @paste.user_id == current_user.id %>
         <div class="pull-right" style="margin-top: 20px;">
           <%= link_to( edit_paste_path(@paste), :class => "btn btn-primary" ) do %>
           <span class="glyphicon glyphicon-edit"></span> Edit
@@ -15,6 +13,7 @@
           <span class="glyphicon glyphicon-edit"></span> Delete
           <% end %>
         </div>
+        <% end %>
         <div class="clearfix"></div>
       </div>
       <hr>
@@ -22,9 +21,3 @@
 	      <pre><code><%= @paste.content %></code></pre>
       </div>
       <hr>
-    </div>
-	</div>
-	<div class="col-md-4">
-    <%= render 'latest' %>
-	</div>
-</div>
