@@ -15,23 +15,38 @@
 
 	<div class="jumbotron">
 		<div class="container">
-      <h1><a href="/">vim-pastebin</a></h1>
-				<p>The easy way to paste from vim</p>
-				<p><a class="btn btn-primary btn-lg">Learn more about the vim plugin</a></p>
+      <div class="col-md-8">
+        <h1><a href="/">vim-pastebin</a></h1>
+        <p>The easy way to paste from vim</p>
+        <p><a class="btn btn-primary btn-lg">Learn more about the vim plugin</a></p>
+      </div>
+      <div class="col-md-4">
+        <ul class="signin-signup">
+          <% if user_signed_in? %>
+          <li>
+            <%= current_user.email %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+          </li>
+          <% else %>
+          <li>
+            <%= link_to 'Login', new_user_session_path, :class => "btn btn-primary" %>  
+          </li>
+          <li>
+            <%= link_to 'Register', new_user_registration_path, :class => "btn btn-primary"  %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
 		</div>
 	</div>
-
-  <% if user_signed_in? %>
-    <%= current_user.email %>
-    <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-  <% end %>
 
   <div id="wrapper">
     <%= content_for?(:content) ? yield(:content) : yield %>
     <div id="push"></div>
   </div>
 
-<div id="footer" class="navbar-fixed-bottom">
+  <div id="footer" class="navbar-fixed-bottom">
 		<div class="container">
 			<p class="muted credit">Provided by <a href="https://github.com/flower-pot">FlowerPot</a> and <a href="https://github.com/flopska">flopska</a>.</p>
 		</div>

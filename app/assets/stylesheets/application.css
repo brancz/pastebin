@@ -31,3 +31,7 @@ h1 a:visited, h1 a:hover, h1 a:link, h1 a:active, h1 a:focus {
 .container .credit {
   margin: 20px 0;
 }
+
+ul.signin-signup li {
+  display: inline;
+}
