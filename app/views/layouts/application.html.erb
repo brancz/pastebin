@@ -12,7 +12,7 @@
   </script>
 </head>
 <body>
-
+<div id="wrap">
 	<div class="jumbotron">
 		<div class="container">
       <div class="col-md-8">
@@ -43,10 +43,11 @@
 
   <div id="wrapper">
     <%= content_for?(:content) ? yield(:content) : yield %>
-    <div id="push"></div>
   </div>
+  <div id="push"></div>
+</div>
 
-  <div id="footer" class="navbar-fixed-bottom">
+  <div id="footer">
 		<div class="container">
 			<p class="muted credit">Provided by <a href="https://github.com/flower-pot">FlowerPot</a> and <a href="https://github.com/flopska">flopska</a>.</p>
 		</div>
