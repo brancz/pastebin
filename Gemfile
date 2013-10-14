@@ -46,3 +46,10 @@ end
 
 # Devise authentication gem
 gem 'devise'
+
+# OAuth Base
+gem 'omniauth'
+
+# GitHub OAuth Strategy
+gem 'omniauth-github'
+
