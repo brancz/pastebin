@@ -1,3 +1,4 @@
+require "omniauth-github"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -255,4 +256,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth :github, "f7c8c31b5d6da66b2f66", "24f72cfeef988654c793be090a4ae1c9c7ac673e", {:scope => 'user'}
 end
