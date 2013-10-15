@@ -19,9 +19,9 @@ class Paste < ActiveRecord::Base
 
   def to_s
     String str = self.title
-    str += " - "
+    str += " by "
     if self.user_id != nil
-      str += User.find(self.user_id).email
+      str += User.find(self.user_id).name
     else
       str += "Anonymous"
     end
