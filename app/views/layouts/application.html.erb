@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>vim-pastebin</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <script>
-	$( document ).ready(function() {
-		hljs.initHighlightingOnLoad();
-	});
-  </script>
+<title>vim-pastebin</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+<script>
+$( document ).ready(function() {
+    hljs.initHighlightingOnLoad();
+    });
+</script>
 </head>
 <body>
 <div id="wrap">
-	<div class="jumbotron">
-		<div class="container">
+  <div class="jumbotron">
+    <div class="container">
       <div class="col-md-5 col-md-offset-2">
         <h1><a href="/">vim-pastebin</a></h1>
         <p>The easy way to paste from vim</p>
@@ -25,46 +25,47 @@
           <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
             <% if user_signed_in? %>
               <%= gravatar_for current_user %><b class="caret"></b>
-            <% else %>
+          <% else %>
               Get Access
-            <% end %>
+          <% end %>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <% if user_signed_in? %>
-            <li role="presentation" class="dropdown-header"><%= current_user.name %></li>
+              <li role="presentation" class="dropdown-header"><%= current_user.name %></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
-              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
+            <%= link_to 'Logout', destroy_user_session_path, 
+              :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
             </li>
             <% else %>
-            <li role="presentation">
+                <li role="presentation">
               <%= link_to 'Login', new_user_session_path %>
-            </li>
-            <li role="presentation">
+              </li>
+              <li role="presentation">
               <%= link_to 'Register', new_user_registration_path %>
-            </li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation">
+              </li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation">
               <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github) %>
-            </li>
+              </li>
             <% end %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
-		</div>
-	</div>
+    </div>
 
-  <div id="wrapper">
-    <%= content_for?(:content) ? yield(:content) : yield %>
+    <div id="wrapper">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
+    <div id="push"></div>
   </div>
-  <div id="push"></div>
-</div>
 
   <div id="footer">
-		<div class="container">
-			<p class="muted credit">Provided by <a href="https://github.com/flower-pot">FlowerPot</a> and <a href="https://github.com/flopska">flopska</a>.</p>
-		</div>
-	</div>
+    <div class="container">
+      <p class="muted credit">Provided by <a href="https://github.com/flower-pot">FlowerPot</a> and <a href="https://github.com/flopska">flopska</a>.</p>
+    </div>
+  </div>
 
-</body>
-</html>
+  </body>
+  </html>

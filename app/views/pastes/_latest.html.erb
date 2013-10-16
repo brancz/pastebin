@@ -1,19 +1,19 @@
-    <div class="panel-body recent-pastes">
-      <div class="header-line">
-				<h3>Recent Pastes</h3>
-			</div>
-			<hr>
-			<ul>
-			<% @pastes.each do |paste| %>
-        <li>
-        <% if user_signed_in? && paste.user_id == current_user.id %>
-          <%= editPasteLink paste %>
-          <%= deletePasteLink paste %>
-        <% end %>
-          <strong><%= link_to paste.to_s, paste %></strong>
-          <br />
-          <small><%= createdAgo(paste) %></small>
-        </li>
-			<% end %>
-			</ul>
-    </div>
+        <div class="panel-body recent-pastes">
+          <div class="header-line">
+            <h3>Recent Pastes</h3>
+          </div>
+          <hr>
+          <ul>
+            <% @pastes.each do |paste| %>
+            <li>
+              <% if user_signed_in? && paste.user_id == current_user.id %>
+              <%= editPasteLink paste %>
+              <%= deletePasteLink paste %>
+              <% end %>
+              <strong><%= link_to paste.to_s, paste %></strong>
+              <br />
+              <small><%= createdAgo(paste) %></small>
+            </li>
+          <% end %>
+          </ul>
+        </div>
