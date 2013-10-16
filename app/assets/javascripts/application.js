@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require highlight_js/highlight.pack.js
+//= require bootstrap/bootstrap.min.js

@@ -15,31 +15,41 @@
 <div id="wrap">
 	<div class="jumbotron">
 		<div class="container">
-      <div class="col-md-8">
+      <div class="col-md-5 col-md-offset-2">
         <h1><a href="/">vim-pastebin</a></h1>
         <p>The easy way to paste from vim</p>
         <p><a class="btn btn-primary btn-lg">Learn more about the vim plugin</a></p>
       </div>
-      <div class="col-md-4">
-        <ul class="signin-signup">
-          <% if user_signed_in? %>
-          <li>
-            <%= gravatar_for current_user %>
-          </li>
-          <li>
-            <%= current_user.name %>
-          </li>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-          </li>
-          <% else %>
-          <li>
-            <%= link_to 'Login', new_user_session_path, :class => "btn btn-primary" %>  
-          </li>
-          <li>
-            <%= link_to 'Register', new_user_registration_path, :class => "btn btn-primary"  %>
-          </li>
-          <% end %>
-        </ul>
+      <div class="col-md-1 col-md-offset-2">
+        <div class="dropdown" style="float: right;">
+          <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+            <% if user_signed_in? %>
+              <%= gravatar_for current_user %>
+            <% else %>
+              Get Access
+            <% end %>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <% if user_signed_in? %>
+            <li role="presentation" class="dropdown-header"><%= current_user.name %></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, "role" => "menuitem", "tabindex" => "-1" %>
+            </li>
+            <% else %>
+            <li role="presentation">
+              <%= link_to 'Login', new_user_session_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'Register', new_user_registration_path %>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+              <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github) %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
 		</div>
 	</div>

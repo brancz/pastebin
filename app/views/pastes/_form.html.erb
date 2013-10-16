@@ -4,8 +4,7 @@
   <div class="alert alert-danger"><b><%= msg %></b></div>
 <% end %>
 <% end %>
-<div class="form-group">
-	<div class="field">
+  <div class="input-group">
     <% if @paste.errors[:title].any? %>
     <div class="has-error">
     <% end %>
@@ -13,11 +12,12 @@
     <% if @paste.errors[:title].any? %>
     </div>
     <% end %>
+    <span class="input-group-btn">
+      <%= f.submit 'Save paste', :class => 'btn btn-success btn-lg' %>
+    </span>
   </div>
-</div>
 <div class="form-group pull-right">
 	<div class="actions">
-		<%= f.submit 'Save paste', :class => 'btn btn-success' %>
 	</div>
 </div>
 <hr>
@@ -31,7 +31,4 @@
   <% end %>
 </div>
 <hr>
-<div class="actions pull-right">
-	<%= f.submit 'Save paste', :class => 'btn btn-success' %>
-</div>
 <% end %>
