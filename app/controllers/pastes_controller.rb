@@ -8,6 +8,11 @@ class PastesController < ApplicationController
     @paste = Paste.new
   end
 
+  # GET /users/pastes
+  def user_pastes
+    @pastes = current_user.pastes if user_signed_in?
+  end
+
   # GET /pastes/1
   # GET /pastes/1.json
   # GET /pastes/1.text

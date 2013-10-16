@@ -1,0 +1,38 @@
+
+
+
+
+
+
+<table class="table table-striped">
+  <% @pastes.each do |paste| %>
+  <tr>
+    <th>
+      <%= "Title" %>
+    </th>
+    <th>
+      <%= "Created At" %>
+    </th>
+    <th>
+      <%= "Edit" %>
+    </th>
+    <th>
+      <%= "Delete" %>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= paste.title %>
+    </td>
+    <td>
+      <%= paste.created_at %>
+    </td>
+    <td>
+      <%= editPasteLink paste %>
+    </td>
+    <td>
+      <%= deletePasteLink paste %>
+    </td>
+  </tr>
+  <% end %>
+</table>

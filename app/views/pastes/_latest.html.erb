@@ -7,8 +7,8 @@
 			<% @pastes.each do |paste| %>
         <li>
         <% if user_signed_in? && paste.user_id == current_user.id %>
-          <%= link_to '', edit_paste_path(paste), :class => "glyphicon glyphicon-edit" %>
-          <%= link_to '', paste, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove" %>
+          <%= editPasteLink paste %>
+          <%= deletePasteLink paste %>
         <% end %>
           <strong><%= link_to paste.to_s, paste %></strong>
           <br />
