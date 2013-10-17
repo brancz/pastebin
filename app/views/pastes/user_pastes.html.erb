@@ -1,5 +1,6 @@
             <div class="panel panel-default">
               <div class="panel-body">
+              <% if user_signed_in? %>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -10,15 +11,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <% @pastes.each do |paste| %>
+                  <% if @user_pastes.any? %>
+                    <% @user_pastes.each do |paste| %>
                     <tr>
                       <td><%= paste.title %></td>
                       <td><%= paste.created_at.strftime('%-d %b %Y %T') %></td>
                       <td class="text-center"><%= editPasteLink paste %></td>
                       <td class="text-center"><%= deletePasteLink paste %></td>
                     </tr>
+                    <% end %>
+                  <% else %>
+                    <tr>
+                      <td colspan="4"><p class="text-center">You don't have any pastes yet!</p></td>
+                    </tr>
                   <% end %>
                   </tbody>
                 </table>
+              <% else %>
+                <p class="text-center">You need to be logged in to view this site.</p>
+              <% end %>
               </div>
             </div>

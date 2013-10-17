@@ -10,7 +10,8 @@ class PastesController < ApplicationController
 
   # GET /users/pastes
   def user_pastes
-    @pastes = current_user.pastes if user_signed_in?
+    @user_pastes = current_user.pastes if user_signed_in?
+    @pastes = Paste.feed
   end
 
   # GET /pastes/1
