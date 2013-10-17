@@ -14,7 +14,7 @@
                   <% if @user_pastes.any? %>
                     <% @user_pastes.each do |paste| %>
                     <tr>
-                      <td><%= paste.title %></td>
+                      <td><strong><%= link_to paste.title, paste %></strong></td>
                       <td><%= paste.created_at.strftime('%-d %b %Y %T') %></td>
                       <td class="text-center"><%= editPasteLink paste %></td>
                       <td class="text-center"><%= deletePasteLink paste %></td>

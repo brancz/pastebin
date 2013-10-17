@@ -20,6 +20,10 @@ html, body {
   height: 100%;
 }
 
+td a {
+  color: #666 !important;
+}
+
 h1 a:visited, h1 a:hover, h1 a:link, h1 a:active, h1 a:focus {
   color: #666;
   text-decoration: none;
