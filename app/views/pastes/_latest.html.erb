@@ -6,13 +6,9 @@
           <ul>
             <% @pastes.each do |paste| %>
             <li>
-              <% if user_signed_in? && paste.user_id == current_user.id %>
-              <%= editPasteLink paste %>
-              <%= deletePasteLink paste %>
-              <% end %>
-              <strong><%= link_to paste.to_s, paste %></strong>
+              <strong><%= link_to paste.title, paste %></strong>
               <br />
-              <small><%= createdAgo(paste) %></small>
+              <small><%= createdAgoByUser(paste) %></small>
             </li>
           <% end %>
           </ul>

@@ -17,17 +17,6 @@ class Paste < ActiveRecord::Base
     end
   end
 
-  def to_s
-    String str = self.title
-    str += " by "
-    if self.user_id != nil
-      str += User.find(self.user_id).name
-    else
-      str += "Anonymous"
-    end
-    str
-  end
-
 	def self.feed
 		Paste.all.order('created_at DESC').limit(5)
 	end
