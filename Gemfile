@@ -53,3 +53,11 @@ gem 'omniauth'
 # GitHub OAuth Strategy
 gem 'omniauth-github'
 
+# Cucumber
+gem 'cucumber-rails', group: [:development, :test], require: false
+
+# Database-Cleaner
+gem 'database_cleaner', group: [:development, :test]
+
+# RSpec
+gem 'rspec', group: [:development, :test]

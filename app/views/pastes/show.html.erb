@@ -1,6 +1,6 @@
       <div>
         <div class="pull-left">
-          <h3><%= @paste.title %></h3>
+          <h3 id="paste-title"><%= @paste.title %></h3>
         </div>
         <% if user_signed_in? && @paste.user_id == current_user.id %>
         <div class="pull-right" style="margin-top: 20px;">
