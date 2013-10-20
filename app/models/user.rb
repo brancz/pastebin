@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
       user
     end
 
+    def skip_confirmation!
+      self.confirmed_at = Time.now
+    end
+
 end
