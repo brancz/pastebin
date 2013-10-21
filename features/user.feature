@@ -17,3 +17,8 @@ Feature: Create paste
     When I press "Save paste"
     Then I should see "This is my test paste" in selector "code"
     And I should see "unnamed" in selector "h3#paste-title"
+
+  Scenario: Tries to create a paste without content
+    Given I am on the homepage
+    When I press "Save paste"
+    Then I should see "Content can't be blank" in selector ".alert-danger b"
