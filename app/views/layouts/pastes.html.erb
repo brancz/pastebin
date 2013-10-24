@@ -1,6 +1,6 @@
 <%= inside_layout 'application' do %>
       <div class="container">
-        <div class="panel-default col-md-6 col-md-offset-1">
+        <div class="panel-default col-md-8">
           <div class="panel-body">
             <% if !notice.nil? %>
               <div class="alert alert-info"><%= notice %></div>
@@ -11,7 +11,7 @@
 <%= yield %>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
 <%= render 'latest' %>
         </div>
       </div>
