@@ -7,7 +7,7 @@
 <%= csrf_meta_tags %>
 <script>
 $( document ).ready(function() {
-    hljs.initHighlightingOnLoad();
+    $('td.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
     });
 </script>
 </head>
