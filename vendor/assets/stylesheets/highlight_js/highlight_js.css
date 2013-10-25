@@ -100,7 +100,7 @@ td.code {
   color: #0086b3
 }
 
-.code ..codeprocessor,
+.code .preprocessor,
 .code .pi,
 .code .doctype,
 .code .shebang,

@@ -51,11 +51,16 @@ td.code {
   line-height: 1.4;
 }
 
-@font-face {
-  font-family: Hermit;
-  src: url("/Hermit.otf") format("opentype");
-}
 
 .code-font {
   font-family: Hermit, Consolas,"Liberation Mono",Courier,monospace;
+}
+
+.eighty-ch-line {
+  position: absolute;
+  left: 654px;
+  top: 134px;
+  bottom: 77px;
+  width: 1px;
+  background-color: #ccc;
 }
