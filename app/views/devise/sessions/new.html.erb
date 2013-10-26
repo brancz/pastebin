@@ -2,7 +2,7 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
           <div class="form-group">
-            <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email" %>
+            <%= f.text_field :login, :autofocus => true, :class => "form-control", :placeholder => "Email or username" %>
           </div>
 
           <div class="form-group">
