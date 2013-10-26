@@ -18,22 +18,21 @@
       </div>
       <hr>
       <div class="field well code-font">
-          <div class='eighty-ch-line'></div>
-          <table>
-              <col width="5%">
-              <col width="95%">
-              <tr>
-                <td class='lines'>
-                  <% @paste.content.split("\r\n").count.times do |line| %>
+        <table>
+            <col width="5%">
+            <col width="95%">
+            <tr>
+              <td class='lines'>
+                <% @paste.content.split("\r\n").count.times do |line| %>
 <span><%= line %></span>
-                  <% end %>
-                </td>
-                <td class='code'>
-                  <% @paste.content.split("\r\n").each do |line| %>
+                <% end %>
+              </td>
+              <td class='code'>
+                <% @paste.content.split("\r\n").each do |line| %>
 <%= line.gsub(/( )/, '&nbsp;').html_safe %><br>
-                  <% end %>
-                </td>
-              </tr>
-          </table>
+                <% end %>
+              </td>
+            </tr>
+        </table>
       </div>
       <hr>
