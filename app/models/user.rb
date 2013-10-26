@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
     :case_sensitive => false
   }
 
+  validates :email,
+    :uniqueness => {
+    :case_sensitive => false
+  }
+
     has_many :pastes
 
     def self.find_for_github_oauth2(access_token, signed_in_resource=nil)
