@@ -10,24 +10,6 @@
   margin-top: 7px;
 }
 
-.glyphicon-edit:visited, .glyphicon-edit:link, .glyphicon-edit:active {
-  color: #428BCA !important;
-  text-decoration: none;
-}
-
-.glyphicon-edit:hover {
-  color: #2A6496 !important;
-}
-
-.glyphicon-remove:visited, .glyphicon-remove:link, .glyphicon-remove:active {
-  color: #D9534F !important;
-  text-decoration: none;
-}
-
-.glyphicon-remove:hover {
-  color: #D43F3A !important;
-}
-
 table {
   width: 100%;
 }
@@ -57,4 +39,12 @@ td.code {
 
 .code-table-wrapper {
   overflow: auto;
+}
+
+div.title {
+  padding-right: 17px;
+}
+
+div.btn-toolbar {
+  padding-top: 17px;
 }
