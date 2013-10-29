@@ -27,12 +27,12 @@
             <col width="95%">
             <tr>
               <td class='lines'>
-                <% @paste.content.split("\r\n").count.times do |line| %>
-<span><%= line %></span>
+                <% @paste.content.lines.count.times do |line| %>
+<span><%= line + 1 %></span>
                 <% end %>
               </td>
               <td class='code'>
-                <% @paste.content.split("\r\n").each do |line| %>
+                <% @paste.content.lines.each do |line| %>
 <%= line.gsub(/( )/, '&nbsp;').html_safe %><br>
                 <% end %>
               </td>

@@ -13,7 +13,6 @@
  *= require 'bootstrap/bootstrap.min.css'
  *= require 'social/social-buttons.css'
  *= require 'font_awesome/font-awesome.min.css'
- *= require 'highlight_js/highlight_js.css'
  */
 
 html, body {
