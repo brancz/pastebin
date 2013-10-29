@@ -2,14 +2,9 @@
 <html>
 <head>
 <title>vim-pastebin</title>
-<%= stylesheet_link_tag    "application", media: "all" %>
-<%= javascript_include_tag "application" %>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= csrf_meta_tags %>
-<script>
-$( document ).ready(function() {
-    $('td.code').each(function(i, e) {hljs.highlightBlock(e, null, true)});
-    });
-</script>
 </head>
 <body>
 <div id="wrap">
