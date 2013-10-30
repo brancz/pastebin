@@ -105,6 +105,6 @@ class PastesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paste_params
-    params.require(:paste).permit(:title, :content)
+    params.require(:paste).permit(:title, :content, :language)
   end
 end

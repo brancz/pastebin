@@ -29,4 +29,7 @@
       <%= f.submit 'Save paste', :class => 'btn btn-success btn-lg' %>
 	</div>
 </div>
+<div class="form-group pull-left">
+  <%= select("paste", "language", Pygments.lexers.collect { |l, k| Pygments.lexers[l][:name] }, {include_blank: 'Auto'}, class: 'form-control') %>
+</div>
 <% end %>

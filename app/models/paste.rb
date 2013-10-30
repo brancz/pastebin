@@ -9,13 +9,19 @@ class Paste < ActiveRecord::Base
   attr_accessor :user
 
   def init
-    if self.content.present? && self.title.blank?
-      self.title = "unnamed"
+    if content.present? && title.blank?
+      title = "unnamed"
     end
   end
 
   def formatted
-    Pygments.highlight(self.content).html_safe
+    if language.blank?
+      Pygments.highlight(content, options: {encoding: 'utf-8'}).html_safe
+    else
+      Pygments.highlight(content, 
+                         lexer: Pygments.lexers[language][:aliases][0], 
+                         options: {encoding: 'utf-8'}).html_safe
+    end
   end
 
 	def self.feed
