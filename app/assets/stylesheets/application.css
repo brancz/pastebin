@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  *= require 'bootstrap/bootstrap.min.css'
+ *= require 'pygments_github/github.css'
  *= require 'social/social-buttons.css'
  *= require 'font_awesome/font-awesome.min.css'
  */

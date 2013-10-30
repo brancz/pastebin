@@ -67,3 +67,6 @@ gem 'database_cleaner', group: [:development, :test]
 
 # RSpec
 gem 'rspec', group: [:development, :test]
+
+# Pygments for synthax highlighting
+gem 'pygments.rb'

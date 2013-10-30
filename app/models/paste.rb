@@ -14,6 +14,10 @@ class Paste < ActiveRecord::Base
     end
   end
 
+  def formatted
+    Pygments.highlight(self.content).html_safe
+  end
+
 	def self.feed
 		Paste.all.order('created_at DESC').limit(5)
 	end
