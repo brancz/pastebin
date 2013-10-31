@@ -18,18 +18,19 @@
   <% if @paste.errors[:content].any? %>
   <div class="has-error">
   <% end %>
-    <%= f.text_area :content, :placeholder => 'Paste your code here ...', :class => 'form-control' %>
+    <%= f.text_area :content, :placeholder => 'Paste your code here ...', :class => 'form-control', rows: 6 %>
   <% if @paste.errors[:content].any? %>
   </div>
   <% end %>
 </div>
 <hr>
-<div class="form-group pull-right">
-	<div class="actions">
-      <%= f.submit 'Save paste', :class => 'btn btn-success btn-lg' %>
-	</div>
-</div>
-<div class="form-group pull-left">
-  <%= select("paste", "language", Pygments.lexers.collect { |l, k| Pygments.lexers[l][:name] }, {include_blank: 'Auto'}, class: 'form-control') %>
+<div class="row">
+  <div class="col-sm-3 col-md-4">
+    <%= select("paste", "language", Pygments.lexers.collect { |l, k| Pygments.lexers[l][:name] }, {include_blank: 'Auto'}, class: 'form-control') %>
+  </div>
+  <div class="pull-right rightpad15">
+    <div class='visible-xs toppad20'></div>
+    <%= f.submit 'Save paste', :class => 'btn btn-success btn-lg' %>
+  </div>
 </div>
 <% end %>
