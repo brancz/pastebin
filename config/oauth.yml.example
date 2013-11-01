@@ -1,0 +1,16 @@
+defaults: &defaults
+
+  #github oauth settings
+  omniauth:
+    enabled: false
+    app_id: 'app id'
+    app_secret: 'app secret'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

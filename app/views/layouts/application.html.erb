@@ -40,9 +40,11 @@
               <li role="presentation">
               <%= link_to 'Register', new_user_registration_path %>
               </li>
+              <% if VimPastebin.config.omniauth.enabled %>
               <li role="presentation" class="divider"></li>
               <li role="presentation">
               <%= link_to 'Login with GitHub', user_omniauth_authorize_path(:github) %>
+              <% end %>
               </li>
             <% end %>
             </ul>

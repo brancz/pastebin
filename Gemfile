@@ -70,3 +70,6 @@ gem 'rspec', group: [:development, :test]
 
 # Pygments for synthax highlighting
 gem 'pygments.rb'
+
+# Settings gem
+gem 'settingslogic'
