@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore oauth config file, it should be copied and filled out by user
-/config/oauth.yml
+/config/vim_pastebin.yml

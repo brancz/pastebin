@@ -1,5 +1,5 @@
 class Settings < Settingslogic
-  source "#{Rails.root}/config/oauth.yml"
+  source "#{Rails.root}/config/vim_pastebin.yml"
   namespace Rails.env
 end
 

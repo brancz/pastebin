@@ -1,0 +1,29 @@
+defaults: &defaults
+
+  #general
+  host: 'example.com'
+  email: 'change-me@example.com'
+
+  #github oauth settings
+  omniauth:
+    enabled: false
+    app_id: 'app id'
+    app_secret: 'app secret'
+
+  #smtp settings
+  smtp:
+    enabled: false
+    user: 'smtp user'
+    password: 'smtp password'
+    host: 'smtp host'
+    port: 'smtp port'
+    domain: 'smtp domain'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
