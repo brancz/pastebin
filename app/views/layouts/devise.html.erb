@@ -9,6 +9,11 @@
       <% if !alert.nil? %> 
         <div class="alert alert-danger"><%= alert %></div>
       <% end %>
+      <% resource.errors.full_messages.each do |error| %>
+      <div class="alert alert-danger">
+        <%= error %>
+      </div>
+      <% end %>
         <div class="well">
           <%= yield %>
         </div>
