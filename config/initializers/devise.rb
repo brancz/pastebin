@@ -248,6 +248,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   if VimPastebin.config.omniauth.enabled
-    config.omniauth :github, VimPastebin.config.omniauth.app_id, VimPastebin.config.omniauth.app_secret, {:scope => 'user'}
+    config.omniauth :github, VimPastebin.config.omniauth.app_id,
+      VimPastebin.config.omniauth.app_secret, {:scope => 'user'}
   end
 end
