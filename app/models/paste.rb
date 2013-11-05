@@ -10,7 +10,7 @@ class Paste < ActiveRecord::Base
 
   def init
     if content.present? && title.blank?
-      title = "unnamed"
+      self.title = "unnamed"
     end
   end
 

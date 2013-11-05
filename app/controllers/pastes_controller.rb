@@ -47,10 +47,12 @@ class PastesController < ApplicationController
   def create
     @pastes = Paste.feed
     @paste = Paste.new(paste_params)
+    
+    puts @paste
+    puts paste_params
 
     if user_signed_in?
       current_user.pastes << @paste
-      current_user.save
     end
 
     respond_to do |format|
