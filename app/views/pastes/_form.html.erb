@@ -1,7 +1,9 @@
 <%= form_for @paste, :html => {:class => 'form-inline'} do |f| %>
 <% if @paste.errors.any? %>
 <% @paste.errors.full_messages.each do |msg| %>
-  <div class="alert alert-danger"><b><%= msg %></b></div>
+	<div class="alert alert-danger"><b><%= msg %></b>
+		<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>	
+	</div>
 <% end %>
 <% end %>
   <div class="field">

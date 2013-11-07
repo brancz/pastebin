@@ -4,14 +4,18 @@
     <div class="col-lg-4 col-md-offset-4">
       <div class="panel-body">
       <% if !notice.nil? %>
-        <div class="alert alert-info"><%= notice %></div>
+				<div class="alert alert-info"><%= notice %>
+					<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>	
+				</div>
       <% end %>
       <% if !alert.nil? %> 
-        <div class="alert alert-danger"><%= alert %></div>
+        <div class="alert alert-danger"><%= alert %>
+					<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+				</div>
       <% end %>
       <% resource.errors.full_messages.each do |error| %>
-      <div class="alert alert-danger">
-        <%= error %>
+      <div class="alert alert-danger"><%= error %>
+				<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>	
       </div>
       <% end %>
         <div class="well">

@@ -3,10 +3,14 @@
         <div class="panel-default col-md-8">
           <div class="panel-body">
             <% if !notice.nil? %>
-              <div class="alert alert-info"><%= notice %></div>
+							<div class="alert alert-info"><%= notice %>
+								<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>	
+							</div>
           <% end %>
             <% if !alert.nil? %> 
-              <div class="alert alert-danger"><%= alert %></div>
+							<div class="alert alert-danger"><%= alert %>
+								<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>	
+							</div>
           <% end %>
 <%= yield %>
           </div>
