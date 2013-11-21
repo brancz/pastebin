@@ -27,6 +27,7 @@
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <% if user_signed_in? %>
             <li role="presentation" class="dropdown-header"><%= current_user.name %></li>
+						<li role="presentation"><a href="/users/edit">Account</a></li>
             <li role="presentation"><a href="/users/pastes">My Pastes</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
