@@ -29,7 +29,12 @@ class PastesController < ApplicationController
   # GET /pastes/new
   def new
     @pastes = Paste.feed
-    @paste = Paste.new
+		@paste = Paste.new
+		if !params['paste_id'].blank?
+			@old_paste = Paste.find params['paste_id']
+			@paste.title = @old_paste.title
+			@paste.content = @old_paste.content
+		end
   end
 
   # GET /pastes/1/edit

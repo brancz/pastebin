@@ -4,8 +4,8 @@
         </div>
         <div class="btn-toolbar">
           <div class="btn-group">
-            <%= link_to "Raw", paste_path(@paste, format: :text), :class => "btn btn-default", :method => :get %>
-            <%= link_to "Json", paste_path(@paste, format: :json), :class => "btn btn-default", :method => :get %>
+            <%= link_to "Raw", paste_path(@paste, format: :text), class: "btn btn-default" %>
+            <%= link_to "Json", paste_path(@paste, format: :json), class: "btn btn-default" %>
           </div>
           <div class="btn-group">
             <% if user_signed_in? && @paste.user_id == current_user.id %>
@@ -23,21 +23,34 @@
       <hr>
       <div class="field well code-font code-table-wrapper">
         <table>
+					<tbody>
             <col width="5%">
             <col width="95%">
             <tr>
               <td class='lines'>
                 <% @paste.content.lines.count.times do |line| %>
-<span><%= line + 1 %></span>
+					<span><%= line + 1 %></span>
                 <% end %>
               </td>
               <td class='code'>
                 <%= @paste.formatted %>
               </td>
             </tr>
+					</tbody>
         </table>
       </div>
       <hr>
-      <div>
-        Language: <%= @paste.language.blank? ? 'Auto' : @paste.language %>
-      </div>
+
+<div class="row">
+  <div class="col-sm-3 col-md-4">
+		Language: <%= @paste.language.blank? ? 'Auto' : @paste.language %>
+  </div>
+  <div class="pull-right rightpad15">
+    <div class='visible-xs toppad20'></div>
+		<%= form_tag new_paste_path, :id => 'from_paste_form', :method => :get do %>
+			<%= hidden_field_tag 'paste_id', @paste.id %>
+			<%= submit_tag 'create a new paste based on this one', id: 'from_paste_submit', class: 'btn btn-primary' %>
+		<% end %>
+  </div>
+</div>
+
