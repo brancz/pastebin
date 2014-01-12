@@ -1,17 +1,17 @@
 class PastesController < ApplicationController
+	before_action :authenticate_user!, only: [:user_pastes, :edit, :update, :destroy]
   before_action :set_paste, only: [:show, :edit, :update, :destroy]
+	before_action :set_feed
 
   # GET /pastes
   # GET /pastes.json
   def index
-    @pastes = Paste.feed
     @paste = Paste.new
   end
 
   # GET /users/pastes
   def user_pastes
-    @user_pastes = current_user.pastes if user_signed_in?
-    @pastes = Paste.feed
+    @user_pastes = current_user.pastes
   end
 
   # GET /pastes/1
@@ -28,7 +28,6 @@ class PastesController < ApplicationController
 
   # GET /pastes/new
   def new
-    @pastes = Paste.feed
 		@paste = Paste.new
 		if !params['paste_id'].blank?
 			@old_paste = Paste.find params['paste_id']
@@ -39,25 +38,19 @@ class PastesController < ApplicationController
 
   # GET /pastes/1/edit
   def edit
-    if !user_signed_in? || @paste.user_id != current_user.id
-      respond_to do |format|
-        format.html { redirect_to :back, alert: 'You are not authorized to edit this paste.' }
-      end
-    end
+		puts @paste.user
+		puts current_user
+		authorize! :update, @paste
   end
 
   # POST /pastes
   # POST /pastes.json
   # POST /pastes.text
   def create
-    @pastes = Paste.feed
     @paste = Paste.new(paste_params)
-    
-    puts @paste
-    puts paste_params
 
     if user_signed_in?
-      current_user.pastes << @paste
+			@paste.user = current_user
     end
 
     respond_to do |format|
@@ -75,6 +68,7 @@ class PastesController < ApplicationController
   # PATCH/PUT /pastes/1
   # PATCH/PUT /pastes/1.json
   def update
+		authorize! :update, @paste
     respond_to do |format|
       if @paste.update(paste_params)
         format.html { redirect_to @paste, notice: 'Paste was successfully updated.' }
@@ -89,26 +83,23 @@ class PastesController < ApplicationController
   # DELETE /pastes/1
   # DELETE /pastes/1.json
   def destroy
-    if user_signed_in? && @paste.user_id == current_user.id
-      @paste.destroy
-      respond_to do |format|
-        format.html { redirect_to pastes_url }
-        format.json { head :no_content }
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to :back, alert: 'You are not authorized to delete this paste.'}
-        #todo json ouput
-      end
-    end
+		authorize! :destroy, @paste
+		@paste.destroy
+		respond_to do |format|
+			format.html { redirect_to pastes_url }
+			format.json { head :no_content }
+		end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_paste
-    @pastes = Paste.feed
     @paste = Paste.find(params[:id])
   end
+
+	def set_feed
+		@pastes = Paste.feed
+	end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paste_params

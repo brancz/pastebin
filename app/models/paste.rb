@@ -6,8 +6,6 @@ class Paste < ActiveRecord::Base
 
   after_initialize :init
 
-  attr_accessor :user
-
   def init
     if content.present? && title.blank?
       self.title = "unnamed"

@@ -77,3 +77,6 @@ gem 'settingslogic'
 # HAML
 gem 'haml'
 gem 'haml-rails'
+
+# cancan
+gem 'cancan'

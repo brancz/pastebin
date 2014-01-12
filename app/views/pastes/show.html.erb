@@ -8,7 +8,7 @@
             <%= link_to "Json", paste_path(@paste, format: :json), class: "btn btn-default" %>
           </div>
           <div class="btn-group">
-            <% if user_signed_in? && @paste.user_id == current_user.id %>
+            <% if user_signed_in? && can?(:update, @paste) && can?(:destroy, @paste) %>
               <%= link_to( edit_paste_path(@paste), :class => "btn btn-default" ) do %>
               <span class="glyphicon glyphicon-edit"></span> Edit
               <% end %>
