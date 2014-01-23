@@ -1,2 +1,2 @@
-json.extract! @paste, :title, :content, :created_at, :updated_at
+json.extract! @paste, :title, :content, :language
 json.url paste_url(@paste)
