@@ -2,23 +2,23 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-		user ||= User.new
-		puts '==============='
-		p user
-		puts '==============='
-		if user.admin?
-			puts user.admin?
-			can :manage, Paste
-		else
-			can :create, Paste
-			can :read, Paste
-			can :update, Paste do |p|
-				p && p.user == user
-			end
-			can :destroy, Paste do |p|
-				p && p.user == user
-			end
-		end
+    user ||= User.new
+    puts '==============='
+    p user
+    puts '==============='
+    if user.admin?
+      puts user.admin?
+      can :manage, Paste
+    else
+      can :create, Paste
+      can :read, Paste
+      can :update, Paste do |p|
+        p && p.user == user
+      end
+      can :destroy, Paste do |p|
+        p && p.user == user
+      end
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

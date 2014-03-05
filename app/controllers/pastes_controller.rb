@@ -1,7 +1,7 @@
 class PastesController < ApplicationController
-	before_action :authenticate_user!, only: [:user_pastes, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:user_pastes, :edit, :update, :destroy]
   before_action :set_paste, only: [:show, :edit, :update, :destroy]
-	before_action :set_feed
+  before_action :set_feed
 
   # GET /pastes
   # GET /pastes.json
@@ -28,19 +28,19 @@ class PastesController < ApplicationController
 
   # GET /pastes/new
   def new
-		@paste = Paste.new
-		if !params['paste_id'].blank?
-			@old_paste = Paste.find params['paste_id']
-			@paste.title = @old_paste.title
-			@paste.content = @old_paste.content
-		end
+    @paste = Paste.new
+    if !params['paste_id'].blank?
+      @old_paste = Paste.find params['paste_id']
+      @paste.title = @old_paste.title
+      @paste.content = @old_paste.content
+    end
   end
 
   # GET /pastes/1/edit
   def edit
-		puts @paste.user
-		puts current_user
-		authorize! :update, @paste
+    puts @paste.user
+    puts current_user
+    authorize! :update, @paste
   end
 
   # POST /pastes
@@ -50,7 +50,7 @@ class PastesController < ApplicationController
     @paste = Paste.new(paste_params)
 
     if user_signed_in?
-			@paste.user = current_user
+      @paste.user = current_user
     end
 
     respond_to do |format|
@@ -68,7 +68,7 @@ class PastesController < ApplicationController
   # PATCH/PUT /pastes/1
   # PATCH/PUT /pastes/1.json
   def update
-		authorize! :update, @paste
+    authorize! :update, @paste
     respond_to do |format|
       if @paste.update(paste_params)
         format.html { redirect_to @paste, notice: 'Paste was successfully updated.' }
@@ -83,12 +83,12 @@ class PastesController < ApplicationController
   # DELETE /pastes/1
   # DELETE /pastes/1.json
   def destroy
-		authorize! :destroy, @paste
-		@paste.destroy
-		respond_to do |format|
-			format.html { redirect_to pastes_url }
-			format.json { head :no_content }
-		end
+    authorize! :destroy, @paste
+    @paste.destroy
+    respond_to do |format|
+      format.html { redirect_to pastes_url }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -97,9 +97,9 @@ class PastesController < ApplicationController
     @paste = Paste.find(params[:id])
   end
 
-	def set_feed
-		@pastes = Paste.feed
-	end
+  def set_feed
+    @pastes = Paste.feed
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paste_params

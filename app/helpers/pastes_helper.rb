@@ -1,6 +1,6 @@
 module PastesHelper
-	def createdAgoByUser(paste)
-		str = time_ago_in_words(paste.created_at, include_seconds: true) + 
+  def createdAgoByUser(paste)
+    str = time_ago_in_words(paste.created_at, include_seconds: true) + 
       " ago by "
     if paste.user_id != nil
       str += User.find(paste.user_id).name
@@ -8,7 +8,7 @@ module PastesHelper
       str += "Anonymous"
     end
     str
-	end
+  end
 
   def editPasteLink(paste)
     link_to '', edit_paste_path(paste), :class => "glyphicon glyphicon-edit"

@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
       self.provider.nil?
     end
 
-		def admin?
-			admin == true
-		end
+    def admin?
+      admin == true
+    end
 
 end
