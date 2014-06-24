@@ -80,3 +80,6 @@ gem 'haml-rails'
 
 # cancan
 gem 'cancan'
+
+# rails admin
+gem 'rails_admin'

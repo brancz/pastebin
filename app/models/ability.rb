@@ -3,12 +3,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    puts '==============='
-    p user
-    puts '==============='
     if user.admin?
-      puts user.admin?
-      can :manage, Paste
+      can :manage, :all
     else
       can :create, Paste
       can :read, Paste
