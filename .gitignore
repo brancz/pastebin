@@ -17,3 +17,4 @@
 
 # Ignore oauth config file, it should be copied and filled out by user
 /config/vim_pastebin.yml
+.vagrant
