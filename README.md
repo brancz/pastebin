@@ -1,6 +1,6 @@
 # Pastebin
 
-You can deploy this pastebin to to heroku in a few simple steps.
+You can deploy this pastebin to Heroku in a few simple steps.
 
 ## Create the config file and push to Heroku
 
